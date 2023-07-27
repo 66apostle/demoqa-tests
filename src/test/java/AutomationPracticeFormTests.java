@@ -15,14 +15,17 @@ public class AutomationPracticeFormTests {
    }
     @Test
     void fillFormsTest() {
+       String firstName = "Pavel";
+       String lastName = "Stoianov";
+
         open("/automation-practice-form");
         $(".main-header").shouldHave(text("Practice Form"));
 
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
 
-        $("#firstName").setValue("Pavel");
-        $("#lastName").setValue("Stoianov");
+        $("#firstName").setValue(firstName);
+        $("#lastName").setValue(lastName);
         $("#userEmail").setValue("mail@test.qa");
         $("#userNumber").setValue("0123456789");
         $("#currentAddress").setValue("Lenina str.1");
@@ -43,6 +46,6 @@ public class AutomationPracticeFormTests {
 
         $(".modal-dialog").shouldBe(visible);
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text("Pavel"), text("Stoianov"));
+        $(".table-responsive").shouldHave(text(firstName), text(lastName));
     }
 }

@@ -15,15 +15,15 @@ public class PracticeFormPage {
     RegistrationResultsComponent registrationResultsComponent = new RegistrationResultsComponent();
     private final String titleText = "Practice Form";
     private final SelenideElement
-                firstNameInput = $("#firstName"),
-                lastNameInput = $("#lastName"),
-                emailInput = $("#userEmail"),
-                numberInput = $("#userNumber"),
-                addressInput = $("#currentAddress"),
-                subjectInput = $("#subjectsInput");
+            firstNameInput = $("#firstName"),
+            lastNameInput = $("#lastName"),
+            emailInput = $("#userEmail"),
+            numberInput = $("#userNumber"),
+            addressInput = $("#currentAddress"),
+            subjectInput = $("#subjectsInput");
 
 
-    public PracticeFormPage openPage () {
+    public PracticeFormPage openPage() {
         open("/automation-practice-form");
         $(".main-header").shouldHave(text(titleText));
         executeJavaScript("$('#fixedban').remove()");
@@ -31,61 +31,61 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage setFirstName (String value) {
+    public PracticeFormPage setFirstName(String value) {
         firstNameInput.setValue(value);
         return this;
     }
 
-    public PracticeFormPage setLastName (String value) {
+    public PracticeFormPage setLastName(String value) {
         lastNameInput.setValue(value);
         return this;
     }
 
-    public PracticeFormPage setEmail (String value) {
+    public PracticeFormPage setEmail(String value) {
         emailInput.setValue(value);
         return this;
     }
 
-    public PracticeFormPage setNumber (String value) {
+    public PracticeFormPage setNumber(String value) {
         numberInput.setValue(value);
         return this;
     }
 
-    public PracticeFormPage setAddress (String value) {
+    public PracticeFormPage setAddress(String value) {
         addressInput.setValue(value);
         return this;
     }
 
-    public PracticeFormPage setSubject (String value) {
+    public PracticeFormPage setSubject(String value) {
         subjectInput.setValue(value).pressEnter();
         return this;
     }
 
-    public PracticeFormPage setGender (String value) {
+    public PracticeFormPage setGender(String value) {
         $("[for=gender-radio-" + value + "]").click();
         return this;
     }
 
-    public PracticeFormPage setBirthDate (String day, String month, String year) {
+    public PracticeFormPage setBirthDate(String day, String month, String year) {
         $("#dateOfBirthInput").click();
         calendarComponent.setDate(day, month, year);
         return this;
     }
 
-    public PracticeFormPage setHobbies (String sports, String reading, String music) {
+    public PracticeFormPage setHobbies(String sports, String reading, String music) {
         $("[for=hobbies-checkbox-" + sports + "]").click();
         $("[for=hobbies-checkbox-" + reading + "]").click();
-        $("[for=hobbies-checkbox-" + music +"]").click();
+        $("[for=hobbies-checkbox-" + music + "]").click();
         return this;
     }
 
-    public PracticeFormPage uploadImage () {
+    public PracticeFormPage uploadImage() {
         $("#uploadPicture").uploadFromClasspath("img/AutomationPracticeFormImg.jpg");
         $("#state").click();
         return this;
     }
 
-    public PracticeFormPage setStateCity (String state, String city) {
+    public PracticeFormPage setStateCity(String state, String city) {
         $("#stateCity-wrapper").$(byText(state)).click();
         $("#city").click();
         $("#stateCity-wrapper").$(byText(city)).click();
@@ -93,12 +93,12 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage verifyResultsModal () {
+    public PracticeFormPage verifyResultsModal() {
         registrationResultsComponent.verifyModalAppears();
         return this;
     }
 
-    public PracticeFormPage verifyResult (String key, String value) {
+    public PracticeFormPage verifyResult(String key, String value) {
         registrationResultsComponent.verifyResult(key, value);
         return this;
     }

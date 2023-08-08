@@ -36,6 +36,9 @@ dependencies {
             'com.github.javafaker:javafaker:1.0.2',
             'io.qameta.allure:allure-selenide:2.23.0'
     )
+
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.10.0')
+
 }
 
 tasks.withType(JavaCompile) {
@@ -44,4 +47,5 @@ tasks.withType(JavaCompile) {
 
 test {
     useJUnitPlatform()
+    systemProperties(System.getProperties())
 }

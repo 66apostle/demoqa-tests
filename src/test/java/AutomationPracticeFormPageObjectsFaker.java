@@ -12,15 +12,7 @@ public class AutomationPracticeFormPageObjectsFaker extends TestBase {
 
     @Tags({@Tag("BLOCKER"), @Tag("UI_TEST"), @Tag("FAKER"), @Tag("PRACTICE")})
 
-    void fillFormsTest() {
-
-        Faker faker = new Faker();
-        String firstName = faker.name().firstName();
-        String lastName = faker.name().lastName();
-        String email = faker.internet().emailAddress();
-        String phone = faker.number().digits(10);
-        String address = faker.address().fullAddress();
-        String subject = "Arts";
+    public void fillFormsTest() {
 
         practiceFormPage.openPage()
                 .setFirstName(firstName)

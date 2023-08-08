@@ -12,12 +12,7 @@ allure {
         version.set("2.19.0")
     }
     adapter {
-        allureJavaVersion.set("2.19.0")
-        aspectjVersion.set("1.9.5")
-        autoconfigure.set(true)
-        autoconfigureListeners.set(true)
         aspectjWeaver.set(true)
-
         frameworks {
             junit5 {
                 adapterVersion.set("2.19.0")
